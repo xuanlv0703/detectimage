@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Detect Image</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+  <div class="col-md-12">
+  	<h2 class="text-center">Detect Image</h2>
+  	<img src="/img/filename.jpg" class="img-responsive center-block" alt="...">
+  	<div class="col-md-6">
+  		 <h2>Tags get from Imagga API</h2>
+		  <ul class="list-group">
+		  	 <% data.forEach(function(user){ %>
+			     <li class="list-group-item"><%- user.tag %> <span class="badge"><%- user.confidence %></span></li>
+		  	<% }); %>
+		  </ul>
+  	</div>
+  	<div class="col-md-6">
+  		 <h2>Tags get from Microsoft API</h2>
+		  <ul class="list-group">
+		  	 <% data1.forEach(function(user){ %>
+			     <li class="list-group-item"><%- user.name %> <span class="badge"><%- user.confidence %></span></li>
+		  	<% }); %>
+		  </ul>
+  	</div>
+  </div>
+ 
+</div>
+
+</body>
+</html>

@@ -1,0 +1,19 @@
+{
+  "name": "imagga",
+  "version": "1.0.0",
+  "description": "test detect image",
+  "main": "index.js",
+  "dependencies": {
+    "async": "^2.1.4",
+    "ejs": "^2.5.5",
+    "express": "^4.14.0",
+    "express-fileupload": "0.0.5",
+    "unirest": "^0.5.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "xuanlv",
+  "license": "ISC"
+}
