@@ -1,0 +1,312 @@
+<script src="/web/js/easyResponsiveTabs.js" type="text/javascript"></script>
+    <script type="text/javascript">
+	    $(document).ready(function () {
+	        $('#horizontalTab').easyResponsiveTabs({
+	            type: 'default', //Types: default, vertical, accordion           
+	            width: 'auto', //auto or any width like 600px
+	            fit: true   // 100% fit in a container
+	        });
+	    });
+    </script>	
+<div class="stock_box">
+	 <div class="col-md-2 stock_left">
+	   <div class="w_sidebar">
+		<section class="sky-form" id="filter-album">
+		   <h4><a ng-click="collapseFilter('album')"><i class="fa fa-chevron-{{showFilter.album?'down':'right'}}"></i> Album </a></h4>
+			 <div class="col col-4" ng-show="showFilter.album">
+				<label class="checkbox"><input ng-model="allAlbum" type="checkbox" checked="" ng-change="checkAllAlbum()"><i></i>All images</label>
+			 </div>
+			 <div class="col col-4" ng-show="showFilter.album">
+			    <label class="checkbox" ng-repeat="alb in listAlbum"  >
+			    	<input type="checkbox" checklist-model="filter.album" checklist-value="alb.id" >
+			    	<i></i>
+			    	{{alb.title}}
+			    </label>
+				<!-- <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Following</label>
+				<label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Lorem Ipsum</label>
+				<label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Injected humour</label>
+				<label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Default model </label> -->
+			</div>
+		</section>
+		<section class="sky-form" id="filter-city">
+			<h4><a ng-click="collapseFilter('city')"><i class="fa fa-chevron-{{showFilter.city?'down':'right'}}"></i> Cities </a></h4>
+			<div class="col col-4" ng-show="showFilter.city">
+				<label class="checkbox"><input ng-model="allCity" type="checkbox" checked="" ng-change="checkAllCity()"><i></i>All city</label>
+				<label class="checkbox" ng-repeat="city in listCity">
+					<input type="checkbox" checklist-model="filter.city" checked="" checklist-value="city" >
+					<i></i>{{city}}
+				</label>
+				<!-- <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Past 3 months</label>
+				<label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Past month</label> -->
+			</div>
+			<!-- <div class="col col-4">
+				<label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Past week</label>
+				<label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Past 3 days</label>
+				<label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Any time</label>
+			</div> -->
+		</section>
+		<section class="sky-form" id="filter-tag">
+			<h4><a ng-click="collapseFilter('tag')"><i class="fa fa-chevron-{{showFilter.tag?'down':'right'}}"></i> Tags </a></h4>
+			<div class="col col-4" ng-show="showFilter.tag">
+				<label class="checkbox"><input ng-model="allTags" type="checkbox" checked="" ng-change="checkAllTags()"><i></i>All tags</label>
+				<label class="checkbox" ng-repeat="tag in listTags">
+					<input type="checkbox" checklist-model="filter.tags" checked=""checklist-value="tag" >
+					<i></i>{{tag}}
+				</label>
+			</div>
+		</section>
+		<section class="sky-form" id="filter-person">
+			<h4><a ng-click="collapseFilter('person')"><i class="fa fa-chevron-{{showFilter.person?'down':'right'}}"></i> Person </a></h4>
+			<div class="col col-4" ng-show="showFilter.person">
+				<label class="checkbox"><input ng-model="allPerson" type="checkbox" checked="" ng-change="checkAllPerson()"><i></i>All person</label>
+				<label class="checkbox" ng-repeat="p in listPerson">
+					<input type="checkbox" checklist-model="filter.person" checked=""checklist-value="p.id" >
+					<i></i>{{p.name}}
+				</label>
+			</div>
+		</section>
+		<section class="sky-form" id="filter-color">
+			<h4><a ng-click="collapseFilter('color')"><i class="fa fa-chevron-{{showFilter.color?'down':'right'}}"></i> Colour </a></h4>
+			<div class="col col-4" ng-show="showFilter.color">
+				<label class="checkbox"><input ng-model="allColor" type="checkbox" name="checkbox"><i></i>All Color</label>
+			</div>
+			<ul class="w_nav2" ng-show="showFilter.color">
+				<li ng-repeat="color in listColors"><a class="{{filter.color==color?'selected':''}}" style="background-color:#{{color}}" ng-click="filterColor(color)"></a></li>
+				<!-- <li><a class="color2" href="#"></a></li>
+				<li><a class="color3" href="#"></a></li>
+				<li><a class="color4" href="#"></a></li>
+				<li><a class="color5" href="#"></a></li>
+				<li><a class="color6" href="#"></a></li>
+				<li><a class="color7" href="#"></a></li>
+				<li><a class="color8" href="#"></a></li>
+				<li><a class="color9" href="#"></a></li>
+				<li><a class="color10" href="#"></a></li>
+				<li><a class="color12" href="#"></a></li>
+				<li><a class="color13" href="#"></a></li>
+				<li><a class="color14" href="#"></a></li>
+				<li><a class="color15" href="#"></a></li>
+				<li><a class="color5" href="#"></a></li>
+				<li><a class="color6" href="#"></a></li>
+				<li><a class="color7" href="#"></a></li>
+				<li><a class="color8" href="#"></a></li>
+				<li><a class="color9" href="#"></a></li>
+				<li><a class="color10" href="#"></a></li> -->
+			</ul>
+		</section>
+		<!-- <section class="sky-form">
+			<h4>discount</h4>
+			<div class="col col-4">
+				<label class="radio"><input type="radio" name="radio" checked=""><i></i>60 % and above</label>
+				<label class="radio"><input type="radio" name="radio"><i></i>50 % and above</label>
+				<label class="radio"><input type="radio" name="radio"><i></i>40 % and above</label>
+			</div><div class="col col-4">
+				<label class="radio"><input type="radio" name="radio"><i></i>30 % and above</label>
+				<label class="radio"><input type="radio" name="radio"><i></i>20 % and above</label>
+				<label class="radio"><input type="radio" name="radio"><i></i>10 % and above</label>
+			</div>						
+		</section> -->
+	   </div>
+      </div>
+	  <div class="col-md-10 sap_tabs">	
+	       <div id="horizontalTab" style="display: block; width: 100%; margin: 0px;">
+			  <ul class="resp-tabs-list">
+			  	  <li class="resp-tab-item" aria-controls="tab_item-0" role="tab"><span>What's Hot</span></li>
+				  <!-- <li class="resp-tab-item" aria-controls="tab_item-1" role="tab"><span>Designers</span></li> -->
+				  <div class="clearfix"></div>
+			  </ul>				  	 
+				<div class="resp-tabs-container">
+				   <div class="tab-1 resp-tab-content" aria-labelledby="tab_item-0">
+						<ul class="tab_img">
+
+							<li ng-repeat="img in listImages" id="{{img.id}}" 
+							ng-show="(allAlbum || filter.album.indexOf(img.aid) > -1) 
+									&& filter_city(img.city) 
+									&& filter_tags(img.tags) 
+									&& filter_person(img.personid) 
+									&& (allColor || img.colors == filter.color)">
+							  	<a  data-toggle="modal" data-target="#detectModal" ng-click="openImage(img)">
+									<img src="{{img.thumb}}" class="img-responsive" alt=""/>
+							    	<div class="tab_desc">
+										<p>{{img.title}}</p>
+										<!-- <button class="btn btn-xs btn-success" data-toggle="modal" data-target="#detectModal"><i class="fa fa-tags"></i> Detect</button> -->
+										<!-- <button class="btn btn-xs btn-success"><i class="fa fa-tags"></i> Detect</button> -->
+										<h4>{{img.album}}</h4>
+									</div>
+								</a>
+							</li>
+
+						   <div class="clearfix"></div>
+						</ul>
+				     </div>	
+
+				    <!--  <div class="tab-1 resp-tab-content" aria-labelledby="tab_item-1">
+						<ul class="tab_img">
+						  <li><a href="single.html">
+							 <img src="/web/images/pic30.jpg" class="img-responsive" alt=""/>
+						     <div class="tab_desc">
+								<p>There are many variations</p>
+								<h4>#25478921</h4>
+							 </div>
+						   </a></li>
+						   <div class="clearfix"></div>
+						</ul>
+				     </div>	     					 	        					 
+			  </div>	
+           </div>
+           <ul class="pagination">
+	        <li>
+	          <a href="#" aria-label="Previous">
+	            <span aria-hidden="true">«</span>
+	          </a>
+	        </li>
+	        <li><a href="#">1</a></li>
+	        <li>
+	          <a href="#" aria-label="Next">
+	            <span aria-hidden="true">»</span>
+	          </a>
+	        </li>
+         </ul> -->
+       </div>
+       <div class="clearfix"> </div>
+    </div>
+
+    <div ui-view="upload"></div>
+<!-- start modal detect image -->
+<!-- face css temp -->
+<style>
+	#photo:hover .rect {
+	    opacity: .75;
+	    transition: opacity .75s ease-out;
+	}
+
+	#photo .rect:hover * {
+	    opacity: 1;
+	}
+
+	#photo .rect {
+	    border-radius: 2px;
+	    border: 3px solid white;
+	    box-shadow: 0 16px 28px 0 rgba(0, 0, 0, 0.3);
+	    cursor: pointer;
+	    left: -1000px;
+	    opacity: 0;
+	    position: absolute;
+	    top: -1000px;
+	}
+
+	#photo .rect .arrow {
+	    border-bottom: 10px solid white;
+	    border-left: 10px solid transparent;
+	    border-right: 10px solid transparent;
+	    height: 0;
+	    width: 0;
+	    position: absolute;
+	    left: 50%;
+	    margin-left: -5px;
+	    bottom: -12px;
+	    opacity: 0;
+	}
+
+	#photo .rect input {
+	    border: 0px;
+	    bottom: -42px;
+	    color: #a64ceb;
+	    font-size: 15px;
+	    height: 30px;
+	    left: 50%;
+	    margin-left: -90px;
+	    opacity: 0;
+	    outline: none;
+	    position: absolute;
+	    text-align: center;
+	    width: 180px;
+	    transition: opacity .35s ease-out;
+	}
+
+	/*#img {
+	    position: absolute;
+	    top: 50%;
+	    left: 50%;
+	    margin: -173px 0 0 -300px;
+	}*/
+</style>
+
+	<div class="modal fade" id="detectModal" tabindex="-1" role="dialog" aria-labelledby="detectModalLabel">
+		<div class="modal-dialog modal-lg" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<h4 class="modal-title" id="detectModalLabel">Detect image</h4>
+				</div>
+				<div class="modal-body">
+					<div class="row">
+						<div class="col-md-6 col-xs-12" >
+							<span id="photo">
+								<img id="previewimg" src="{{detectImg.path}}" class="img-responsive" alt="" style="width:100%">
+								<div ng-repeat="tag in detectImg.personobj.tags" class="rect" style="width: {{(tag.width/detectImg.personobj.width)*100}}%; height: {{(tag.height/detectImg.personobj.height)*100}}%; left: {{((tag.center.x-(tag.width/2))/detectImg.personobj.width)*100}}%; top: {{((tag.center.y-(tag.height/2))/detectImg.personobj.height)*100}}%;">
+									<!-- <input><div class="arrow"></div> -->
+								</div>
+							</span>
+						</div>
+						<div class="col-md-6 col-xs-12">
+							<form class="">
+								<div class="form-group">
+									<label for="DI_title">Title:</label>
+									<input ng-disabled="isDetecting" type="text" class="form-control" id="DI_title" ng-model="detectImg.title" />
+								</div>
+								<div class="form-group">
+									<label for="tags">Person Tags:</label>
+									<ui-select multiple tagging tagging-label="(custom 'new' label)" ng-model="detectImg.persontags" theme="bootstrap" sortable="true" ng-disabled="isDetecting" style="width: 100%;" title="Select person">
+										<ui-select-match placeholder="Select tags...">{{$item}}</ui-select-match>
+										<ui-select-choices repeat="tag in personAvailable | filter:$select.search">
+										{{tag}}
+										</ui-select-choices>
+									</ui-select>
+								</div>
+								<div class="form-group">
+									<label for="tags">Common Tags:</label>
+									<ui-select multiple tagging tagging-label="(custom 'new' label)" ng-model="detectImg.tags" theme="bootstrap" sortable="true" ng-disabled="isDetecting" style="width: 100%;" title="Select tags">
+										<ui-select-match placeholder="Select tags...">{{$item}}</ui-select-match>
+										<ui-select-choices repeat="tag in tagAvailable | filter:$select.search">
+										{{tag}}
+										</ui-select-choices>
+									</ui-select>
+								</div>
+								<div class="form-group">
+									<label for="tags">All Tags:</label>
+									<ui-select multiple tagging tagging-label="(custom 'new' label)" ng-model="detectImg.alltags" theme="bootstrap" sortable="true" ng-disabled="isDetecting" style="width: 100%;" title="Select tags">
+										<ui-select-match placeholder="Select tags...">{{$item}}</ui-select-match>
+										<ui-select-choices repeat="tag in alltagAvailable | filter:$select.search">
+										{{tag}}
+										</ui-select-choices>
+									</ui-select>
+								</div>
+								<div class="form-group">
+									<label for="tags">Locations:</label>
+									<label ng-hide="cityAvailable.length">No GPS Data available</label>
+									<ui-select multiple tagging tagging-label="(custom 'new' label)" ng-model="detectImg.city" theme="bootstrap" sortable="true" ng-disabled="isDetecting" style="width: 100%;" title="Select locations">
+										<ui-select-match placeholder="Select locations...">{{$item}}</ui-select-match>
+										<ui-select-choices repeat="city in cityAvailable | filter:$select.search">
+										{{city}}
+										</ui-select-choices>
+									</ui-select>
+								</div>
+								<div class="form-group">
+									<label for="tags">Color:</label>
+									<div style="cursor:pointer;width:100%;height:25px;padding: 3px 5px;;display:block;background-color:{{detectImg.color}}" >{{detectImg.color}}</div>
+									<button colorpicker type="button" colorpicker-position="top" ng-model="detectImg.color">Change Color</button>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-danger pull-left" ng-click="removeImg()" ng-disabled="isDetecting">Remove</button>
+					<button type="button" class="btn btn-info" ng-click="recognizeImage()" ng-disabled="isDetecting" ><i class="fa fa-spinner fa-spin" ng-show="isDetecting"></i> Face recognize</button>
+					<button type="button" class="btn btn-success" ng-click="detectImage()" ng-disabled="isDetecting" ><i class="fa fa-spinner fa-spin" ng-show="isDetecting"></i> {{isDetecting?'Detecting...':'Detect'}}</button>
+					<button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="updateImg()" ng-disabled="isDetecting" >Save changes</button>
+				</div>
+			</div>
+		</div>
+	</div>
+<!-- end modal detect image -->

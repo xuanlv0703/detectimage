@@ -1,0 +1,87 @@
+a{
+	cursor: pointer;
+}
+.btn-upload{
+	position: fixed;
+	right: 10px;
+	bottom: 10px;
+	width: 80px;
+	height: 80px;
+    -webkit-transition-duration: 0.5s; /* Safari */
+    transition-duration: 0.5s;
+}
+.btn-upload img{
+	width: 80px;
+	height: 80px;
+    -webkit-transition-duration: 0.5s; /* Safari */
+    transition-duration: 0.5s;
+}
+.btn-upload:hover,.btn-upload:hover img{
+	width: 100px;
+	height: 100px;
+    -webkit-transition-duration: 0.5s; /* Safari */
+    transition-duration: 0.5s;
+}
+.img-circle {
+    border-radius: 50%;
+}
+
+.w_nav2 li a.selected{
+	border-top: 1px #BBB solid;
+	border-left: 1px #BBB solid;
+	border-bottom: 2px #BBB solid;
+	border-right: 2px #BBB solid;
+}
+
+.register-but form button[type="submit"] {
+    background: #00C78A;
+    color: #FFF;
+    font-size: 1em;
+    padding: 0.8em 2em;
+    transition: 0.5s all;
+    -webkit-transition: 0.5s all;
+    -moz-transition: 0.5s all;
+    -o-transition: 0.5s all;
+    display: inline-block;
+    text-transform: uppercase;
+    border: none;
+    outline: none;
+    font-weight: 500;
+    border-radius: 2px;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    -o-border-radius: 2px;
+    -ms-border-radius: 2px;
+}
+.register-but form button[type="submit"]:hover{
+	background:#555;
+}
+.register-but form button[type="submit"].disabled{
+	background:#555;
+}
+
+
+/*gallery thumbnail*/
+.tab_desc p{
+    height: 18px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+
+/*custom header logo*/
+.header-row .logo{
+    margin-left: 15px;
+}
+.header-row .top_right{
+    margin-right: 15px;
+}
+@media(min-width: 992px){
+    .header-row .logo{
+        margin-left: 10px;
+    }
+    .header-row .top_right{
+        margin-right: 85px;
+    }
+}

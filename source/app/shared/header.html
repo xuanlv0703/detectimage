@@ -1,0 +1,24 @@
+<div class="header">
+    <div class="row">
+        <div class="col-md-9 col-md-offset-2 header-row">
+        <!-- <div class="container"> -->
+            <div class="logo">
+                <h1><a href="#/">Photo Hub</a></h1>
+            </div>
+            <div class="top_right">
+                <ul ng-hide="isLogin">
+                    <li><a href="#/register">Register</a></li>|
+                    <li class="login"><a href="#/login">Login</a></li>
+                </ul>
+                <ul ng-show="isLogin">
+                    <li ng-show="isLogin"><a href="#/subscription">Subscription</a></li>|
+                    <li ng-show="isLogin"><a href="#/profile">Profile</a></li>|
+                    <li ng-show="isLogin"><a href="#/">Gallery</a></li>|
+                    <li ng-show="isLogin && isAdmin"><a href="#/admin">Admin</a></li><span ng-show="isLogin && isAdmin">|</span>
+                    <li ng-show="isLogin" class="login"><a ng-click="logout()">Logout</a></li>
+                </ul>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>

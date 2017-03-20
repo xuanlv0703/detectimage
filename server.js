@@ -1,123 +1,83 @@
-var express = require('express');
-var fileUpload = require('express-fileupload');
-var app = express();
-app.engine('html', require('ejs').renderFile);
-app.set('views', __dirname + '/views'); // general config
-app.set('view engine', 'html');
-app.use(express.static(__dirname));
-// app.use(express.static(__dirname + '/assets'));
-// default options 
-app.use(fileUpload());
-app.get('/', function(req, res) {
-    res.sendFile(__dirname + '/index.html')
-})
-app.get('/user', function(req, res) {
-    // res.render('user',{ data: result});
-    res.sendFile(__dirname + '/views/user.html')
-})
+var express         = require("express");
+var bodyParser = require("body-parser");
+var mysql = require("mysql");
+var md5 = require('MD5');
+var jwt = require('jsonwebtoken'); // used to create, sign, and verify tokens
+var nodemailer = require('nodemailer');
+var app = express()
+app.use(require('express-domain-middleware'));
+var http = require('http').Server(app)
+var config = require('./config') // get our config file
+var pool = require('./dbpool').connect(config.database)
 
-app.post('/upload', function(req, res) {
-    var sampleFile;
+var host = process.env.OPENSHIFT_NODEJS_IP || config.host
+var port = process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT || config.port
 
-    if (!req.files) {
-        res.send('No files were uploaded.');
-        return;
+app.set('dbpool', pool)
+app.set('uses', require('./uses'))
+app.set('jwt', jwt)
+app.set('secret', config.secret)
+
+app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }))
+app.use(bodyParser.json({ limit: '50mb' }))
+
+app.use(express.static(__dirname))
+app.use(express.static(__dirname + '/source'))
+//cross domain.
+app.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
+    res.header("Access-Control-Allow-Headers", "X-Requested-With,Content-Type,Cache-Control,x-access-token");
+    if (req.method === 'OPTIONS') {
+        res.statusCode = 204;
+        return res.end();
+    } else {
+        return next();
     }
-
-    sampleFile = req.files.sampleFile;
-    sampleFile.mv('./img/filename.jpg', function(err) {
-        if (err) {
-            res.status(500).send(err);
-        } else {
-            //call async
-            totalResult(res, sampleFile.data);
-            //res.send('File uploaded!');
-
-        }
-    });
 });
-var unirest = require("unirest");
-    var request = require('request'),
-        apiKey = 'acc_94129a9e6f11e84 ',
-        apiSecret = '9291162050501da0ff1640e3ca01637b';
 
-var async = require('async');
-//upload image to cloud server
-var fs = require('fs');
-function createFormData(callback) {
-    filePath = './img/filename.jpg',
-        formData = {
-            image: fs.createReadStream(filePath)
-        };
-    callback(null, formData)
-}
 
-function postImage(arg1, callback) {
 
-    request.post({ url: 'https://api.imagga.com/v1/content', formData: arg1 },
-        function(error, response, body) {
-            var data = JSON.parse(body)
-            var id = data.uploaded[0].id;
-            callback(null, id);
-        }).auth(apiKey, apiSecret, true);
-}
+app.get("/", function (req, res) {
+  res.sendFile(__dirname + "/index.html")
+})
 
-function getContent(arg1, callback) {
-    request.get('https://api.imagga.com/v1/tagging?content=' + arg1, function(error, response, body) {
-        var data = JSON.parse(body)
-        callback(null, data.results[0].tags);
-    }).auth(apiKey, apiSecret, true);
-}
 
-function myProcess(arg1, callback) {
-    callback(null, arg1);
-}
 
-//microsoft api
-function detectMicrosoft(callback, imgdata) {
-    var req = unirest("POST", "https://api.projectoxford.ai/vision/v1.0/analyze");
-    req.query({
-        "visualFeatures": 'tags',
-        "language": "en"
+// process.on('uncaughtException', function(err) {
+//  console.log('xuante')
+//  console.log(err);
+// })
+
+config.routes.map(addApi) // inspect the config file for details
+
+app.use(function (err, req, res, next) {
+  console.error('xuanle',err.stack)
+    var receiverEmail = config.errormail;
+    var transporter = nodemailer.createTransport(config.servermail);
+    var text = err.stack;
+    var mailOptions = {
+        from: 'xuan@rasia.info', // sender address
+        to: receiverEmail, // list of receivers
+        subject: 'Error from Photo Hub Page', // Subject line
+        text: text //, // plaintext body
+        // html: '<b>Hello world ✔</b>' // You can choose to send an HTML body instead
+    };
+    transporter.sendMail(mailOptions, function(error, info){
+  res.status(500).send('Something broke!')
+
     });
+})
 
-    req.headers({
-        "Ocp-Apim-Subscription-Key": "aff897d767554595aa12e81fe533d08f",
-        "Content-Type": "application/json"
-    });
+http.listen(port, function () {
+  console.log('\n=====================================')
+  console.log("App service started at %s:%s", host, port)
+})
 
-    // req.send({"url":"https://imagga.com/static/images/alienware_15.png"});
-    req.multipart([{
-        'content-type': 'application/json',
-        body: imgdata
-    }]);
-
-    req.end(function(res) {
-        // if (res.error) throw new Error(res.error);
-        callback(null, res.body.tags);
-    });
+function addApi(node) {
+  var url = '/api/' + node.url
+  var apijs = './routes/' + node.file
+  var route = require(apijs)(app)
+  // require('./document')(url, route.stack)
+  app.use(url, route)
 }
-
-function totalResult(res, imgdata) {
-    async.parallel({
-        one: function(callback) {
-            async.waterfall([
-                createFormData,
-                postImage,
-                getContent,
-                myProcess
-            ], function(err, result) {
-                callback(null, result);
-            });
-        },
-        two: function(callback) {
-            detectMicrosoft(callback, imgdata)
-        }
-    }, function(err, results) {
-        res.render('user', { data: results.one, data1: results.two });
-    });
-}
-
-app.listen(3000);
-
-console.log("Running at Port 3000");

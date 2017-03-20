@@ -1,0 +1,55 @@
+<div class="register">
+    <div class="container">
+        <form name="registerform">
+            <div class="register-top-grid">
+                <h1>PERSONAL INFORMATION</h1>
+                <div>
+                    <span>First Name<label>*</label></span>
+                    <input type="text" ng-model="regis.firstname" ng-change="check_form()" required>
+                </div>
+                <div>
+                    <span>Last Name<label>*</label></span>
+                    <input type="text" ng-model="regis.lastname" ng-change="check_form()" required>
+                </div>
+                <div>
+                    <span>Email Address<label>*</label></span>
+                    <input type="email" ng-model="regis.email" ng-change="check_form()" required>
+                </div>
+                <div>
+                    <span>Username<label>*</label></span>
+                    <input type="text" ng-model="regis.username" ng-change="check_form()" required>
+                </div>
+                <div>
+                    <span>Password<label>*</label></span>
+                    <input type="password" ng-model="regis.password" ng-change="check_form()" required>
+                </div>
+                <div>
+                    <span>Retype Password<label>*</label></span>
+                    <input type="password" ng-model="regis.repassword" ng-change="check_form()" required>
+                </div>
+            <!-- </div>
+            <div class="register-bottom-grid">
+                <h4>PERSONAL INFORMATION</h4> -->
+                <div class="clearfix"> </div>
+            </div>
+        </form>
+        <div class="clearfix"> </div>
+        <div class="register-but">
+            <form>
+                <div class="alert alert-danger" ng-show="regis.message.username!= ''||regis.message.email != ''">
+                    <ul>
+                        <li ng-show="regis.message.username!= ''">{{regis.message.username}}</li>
+                        <li ng-show="regis.message.email != ''">{{regis.message.email}}</li>
+                    </ul>
+                </div>
+                <div class="alert alert-danger" ng-show="">
+                </div>
+                <button type="submit" class="{{regis.notValid?'disabled':''}}" ng-click="submit_form()" ng-disabled="regis.notValid">SUBMIT</button>
+                <div style="margin-top:10px;">
+                    Already have an account? <a href="#/login"> Sign In Here </a>
+                </div>
+                <div class="clearfix"> </div>
+            </form>
+        </div>
+    </div>
+</div>

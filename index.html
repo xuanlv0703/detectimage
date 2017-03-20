@@ -1,12 +1,104 @@
-<html>
-    <body>
-        <form ref='uploadForm' 
-            id='uploadForm' 
-            action='http://localhost:3000/upload' 
-            method='post' 
-            encType="multipart/form-data">
-                <input type="file" name="sampleFile" />
-                <input type='submit' value='Upload!' />
-        </form>		
-    </body>
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <!--[if IE]> <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> <![endif]-->
+    <title>Photo-Hub an Photo Gallery Category Flat Bootstarp responsive Website Template| Home :: w3layouts</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="Photo-Hub Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+    <!-- <link rel="icon" type="image/png" href="assets/img/favicon.ico" /> -->
+    <link rel="stylesheet" type="text/css" href="assets/css/lib/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/lib/datetimepicker/datetimepicker.css" />
+    <link rel="stylesheet" type="text/css" href="assets/css/lib/jquery.dataTables.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/lib/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/lib/countrySelect.min.css">
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800">
+    <link rel="stylesheet" type="text/css" href="assets/css/angular-ui-notification.css">
+    <link rel="stylesheet" type="text/css" href="assets/colorpicker/css/colorpicker.min.css">
+
+
+
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<!-- Custom Theme files -->
+<link href="assets/css/style.css" rel='stylesheet' type='text/css' />
+<link href="assets/css/custom.css" rel='stylesheet' type='text/css' />
+<link href="assets/upload/css/fileinput.min.css" rel='stylesheet' type='text/css' />
+<!-- Custom Theme files -->
+<!--webfont-->
+<link href='http://fonts.googleapis.com/css?family=Quicksand:300,400,700' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800' rel='stylesheet' type='text/css'>
+
+
+ 
+    <link rel="stylesheet" href="assets/js/select.css">
+
+    <!-- <script src="./demo.js"></script> -->
+
+    <!-- themes -->
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/3.4.5/select2.css">    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.8.5/css/selectize.default.css">
+
+</head>
+
+<body ng-app="myApp">
+    <div ui-view="login"></div>
+    <div ui-view="forgot"></div>
+    <div ui-view="register"></div>
+    <div ui-view="header"></div>
+    <div class="contents" ui-view="content"></div>
+    <div ui-view="footer"></div>
+    <script type="text/javascript" src="assets/js/lib/jquery.min.js"></script>
+    <script type="text/javascript" src="assets/js/lib/bootstrap.min.js"></script>
+    <script type="text/javascript" src="assets/js/lib/fabric.min.js"></script>
+    <script type="text/javascript" src="assets/js/lib/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="assets/js/lib/countrySelect.min.js"></script>
+    <script type="text/javascript" src="assets/js/lib/moment.js"></script>
+    <script type="text/javascript" src="assets/js/lib/angular.min.js"></script>
+     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-sanitize.js"></script>
+
+    <!-- ui-select files -->
+    <script src="assets/js/select.js"></script>
+    <script type="text/javascript" src="assets/js/lib/angular-ui-router.min.js"></script>
+    <script type="text/javascript" src="assets/js/lib/socket.io-1.2.0.js"></script>
+    <script type="text/javascript" src="assets/js/lib/datetimepicker/datetimepicker.js"></script>
+    <script type="text/javascript" src="assets/js/lib/datetimepicker/datetimepicker.templates.js"></script>
+    <script type="text/javascript" src="assets/js/lib/angular-ui-notification.js"></script>
+    <script type="text/javascript" src="assets/js/main.js"></script>
+    <script type="text/javascript" src="/app/app.module.js"></script>
+    <script type="text/javascript" src="/app/app.routes.js"></script>
+    <script type="text/javascript" src="/app/app.service.js"></script>
+    <script type="text/javascript" src="assets/js/lib/ngupload/ng-file-upload.min.js"></script>
+    <script type="text/javascript" src="assets/js/lib/ngupload/ng-file-upload-shim.js"></script>
+    <script type="text/javascript" src="assets/js/lib/angular-datatables.min.js"></script>
+    <script type="text/javascript" src="assets/js/lib/angular-md5.js"></script>
+    <script type="text/javascript" src="assets/colorpicker/js/bootstrap-colorpicker-module.min.js"></script>
+    <script type="text/javascript" src="/app/components/login/loginController.js"></script>
+    <script type="text/javascript" src="/app/components/forgot/forgotController.js"></script>
+    <script type="text/javascript" src="/app/shared/headerController.js"></script>
+    <script type="text/javascript" src="/app/components/register/registerController.js"></script>
+    <script type="text/javascript" src="/app/components/gallery/galleryController.js"></script>
+    <script type="text/javascript" src="/app/components/profile/profileController.js"></script>
+    <script type="text/javascript" src="/app/components/upload/uploadController.js"></script>
+    <script type="text/javascript" src="/app/components/admin/adminController.js"></script>
+    <script type="text/javascript" src="/app/components/admin/subscriptions/subscriptionsController.js"></script>
+
+     <script type="text/javascript" src="/app/components/admin/users/usersController.js"></script>
+    <script type="text/javascript" src="/app/components/subscription/subscriptionController.js"></script>
+    <script type="text/javascript" src="assets/upload/js/fileinput.min.js"></script>
+    <script type="text/javascript" src="assets/js/checklist-model.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore.js"></script>
+    <!-- end -->
+    
+</body>
+
 </html>

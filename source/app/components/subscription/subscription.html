@@ -1,0 +1,161 @@
+<style type="text/css">
+/*============================================================
+GENERAL STYLES
+============================================================*/
+
+.db-wrapper {
+    font-family: Arial;
+}
+
+
+/*============================================================
+BACKGROUND COLORS
+============================================================*/
+
+.db-bk-color-1 {
+    background-color: #f55039;
+}
+
+.db-bk-color-2 {
+    background-color: #46A6F7;
+}
+
+.db-bk-color-3 {
+    background-color: #47887E;
+}
+
+
+/*============================================================
+BUTTONS STYLES
+============================================================*/
+
+.db-button-color-1 {
+    border: none;
+    background-color: #f55039;
+    color: #fff;
+}
+
+.db-button-color-1:hover,
+.db-button-color-1:focus {
+    color: #fff;
+}
+
+.db-button-color-2 {
+    border: none;
+    background-color: #46A6F7;
+    color: #fff;
+}
+
+.db-button-color-2:hover,
+.db-button-color-2:focus {
+    color: #fff;
+}
+
+.db-button-color-3 {
+    border: none;
+    background-color: #47887E;
+    color: #fff;
+}
+
+.db-button-color-3:hover,
+.db-button-color-3:focus {
+    color: #fff;
+}
+
+
+/*============================
+PRICING TABLES NINE STYLES
+==============================*/
+
+.db-pricing-nine {
+    border: 1px solid #EDEDED;
+    margin-bottom: 30px;
+}
+
+.db-width-perticular {
+    width: 300px;
+}
+
+.db-pricing-nine .table {
+    text-align: center;
+    margin-bottom: 0px;
+}
+
+.db-pricing-nine thead tr th {
+    font-weight: normal;
+    font-weight: normal;
+    height: 72px;
+    vertical-align: middle;
+    text-align: center;
+    color: #fff;
+}
+
+.db-pricing-nine i.icon-red {
+    color: rgb(250, 57, 57);
+}
+
+.db-pricing-nine i.icon-green {
+    color: #00E025;
+}
+</style>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h1>Subscription</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class=" col-xs-12 col-sm-12 col-md-12 col-lg-10 col-lg-offset-1">
+            <div class="db-wrapper">
+                <div class="db-pricing-nine">
+                    <div class="table-responsive">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    <th ng-repeat="sub in listSubscriptions" class="db-bk-color-{{listSubscriptions.indexOf(sub)%3+1}}" >{{sub.title}}</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="db-width-perticular">Images recognized</td>
+                                    <td ng-repeat="sub in listSubscriptions">{{sub.imagerecognized}}</td>
+                                </tr>
+                                <tr>
+                                    <td class="db-width-perticular">Album</td>
+                                    <td ng-repeat="sub in listSubscriptions">{{sub.album}}</td>
+                                </tr>
+                                <tr>
+                                    <td class="db-width-perticular">Faces defined</td>
+                                    <td ng-repeat="sub in listSubscriptions">{{sub.facedefined}}</td>
+                                </tr>
+                                <tr>
+                                    <td class="db-width-perticular">Disk space(Gb)</td>
+                                    <td ng-repeat="sub in listSubscriptions">{{sub.diskspace}} Gb</td>
+                                </tr>
+                                <tr>
+                                    <td class="db-width-perticular">Image size(Mb)</td>
+                                    <td ng-repeat="sub in listSubscriptions">{{sub.imagesize}} Mb</td>
+                                </tr>
+                                <tr>
+                                    <td class="db-width-perticular">Price($)</td>
+                                    <td ng-repeat="sub in listSubscriptions">{{sub.price}}</td>
+                                </tr>
+                                <tr>
+                                    <td class="db-width-perticular"></td>
+                                    <td ng-repeat="sub in listSubscriptions">
+                                        <a ng-show="sub.id != activeSubId" style="cursor:pointer;" ng-click="activeSubscription(sub.id)" class="btn db-button-color-{{listSubscriptions.indexOf(sub)%3+1}}">BUY</a>
+                                        <i ng-show="sub.id == activeSubId" class="glyphicon glyphicon-ok icon-green"></i>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- <td><i class="glyphicon glyphicon-ok icon-green"></i></td>
+<td><i class="glyphicon glyphicon-ok icon-green"></i></td>
+<td><i class="glyphicon glyphicon-remove icon-red"></i></td> -->

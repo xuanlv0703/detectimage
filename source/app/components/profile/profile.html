@@ -1,0 +1,417 @@
+<style type="text/css">
+.feed-header {
+    margin: 0;
+    padding: 0;
+    /*background: #333333 url("//d36xtkk24g8jdx.cloudfront.net/bluebar/dd6cb37/images/profile/noise-black.png") 50% 50%;*/
+    /*background-image: url("//d36xtkk24g8jdx.cloudfront.net/bluebar/dd6cb37/images/profile/profile-header-gradient.png"), url("//d36xtkk24g8jdx.cloudfront.net/bluebar/dd6cb37/images/profile/noise-black.png");
+    -webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 3px rgba(0, 0, 0, 0.5) inset;
+    -moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 3px rgba(0, 0, 0, 0.5) inset;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 3px rgba(0, 0, 0, 0.5) inset;*/
+    position: relative;
+    overflow: hidden;
+}
+
+.profile-user {
+    position: relative;
+    /*max-width: 964px;*/
+    min-height: 75px;
+    margin: 0 auto;
+    padding: 10px 30px 15px;
+    border-bottom: 1px solid #d9d9d9;
+    background: #eeeeee url("//d36xtkk24g8jdx.cloudfront.net/bluebar/dd6cb37/images/bg/white-gradient-200px.png") repeat-x 50% 50%;
+    -webkit-box-shadow: 1px 0 0 rgba(0, 0, 0, 0.05), -1px 0 0 rgba(0, 0, 0, 0.05), 0 1px 2px rgba(0, 0, 0, 0.05);
+    -moz-box-shadow: 1px 0 0 rgba(0, 0, 0, 0.05), -1px 0 0 rgba(0, 0, 0, 0.05), 0 1px 2px rgba(0, 0, 0, 0.05);
+    box-shadow: 1px 0 0 rgba(0, 0, 0, 0.05), -1px 0 0 rgba(0, 0, 0, 0.05), 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.compWrapper {
+    margin-left: auto;
+    margin-right: auto;
+    /*max-width: 1024px;*/
+    /*min-width: 720px;*/
+    border: 1px solid #000;
+    border-top: none;
+    -webkit-border-radius: 4px 4px 0 0;
+    border-radius: 4px 4px 0 0;
+}
+
+.compInnerWrapper {
+    padding-bottom: 30%;
+    /* maintain aspect ratio */
+    position: relative;
+    width: auto;
+}
+
+.compNoComp .compInnerWrapper {
+    padding-bottom: 88px;
+}
+
+.compContainer {
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    margin-left: 0;
+    /*margin-top: 1px;*/
+    background-color: #000;
+    -webkit-border-radius: 4px 4px 0 0;
+    border-radius: 4px 4px 0 0;
+    -webkit-box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.06);
+    -moz-box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.06);
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.06);
+}
+
+.compNoComp .compContainer,
+.compContainerLoading {
+    background-color: #444;
+}
+
+.compPhoto {
+    position: absolute;
+    height: 50%;
+    width: 20%;
+    margin: 0 0 0 -1px;
+    .compFrontside,
+    .compFlipside {
+        bottom: 1px;
+        left: 1px;
+        position: absolute;
+        right: 0;
+        top: 0;
+        -webkit-transition: opacity .6s ease-out;
+        -moz-transition: opacity .6s ease-out;
+        -o-transition: opacity .6s ease-out;
+        transition: opacity .6s ease-out;
+    }
+}
+
+.compPhotoShadow {
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    bottom: 0;
+    display: block;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.compPhoto1 {
+    left: 0;
+    top: 0;
+    -webkit-border-radius: 4px 0 0 0;
+    border-radius: 4px 0 0 0;
+    a,
+    .Image,
+    .compPhotoShadow {
+        -webkit-border-radius: 4px 0 0 0;
+        border-radius: 4px 0 0 0;
+    }
+}
+
+.compPhoto2 {
+    left: 0;
+    top: 50%;
+}
+
+.compPhoto3 {
+    left: 20%;
+    top: 0;
+}
+
+.compPhoto.compPhoto3 {
+    height: 100%;
+    width: 40%;
+}
+
+.compPhoto4 {
+    left: 60%;
+    top: 0;
+}
+
+.compPhoto5 {
+    left: 60%;
+    top: 50%;
+}
+
+.compPhoto6 {
+    left: 80%;
+    top: 0;
+    -webkit-border-radius: 0 4px 0 0;
+    border-radius: 0 4px 0 0;
+    a,
+    .Image,
+    .compPhotoShadow {
+        -webkit-border-radius: 0 4px 0 0;
+        border-radius: 0 4px 0 0;
+    }
+}
+
+.compPhoto7 {
+    left: 80%;
+    top: 50%;
+}
+
+.compPhoto6 .compPhotoShadow,
+.compPhoto7 .compPhotoShadow {
+    right: -1px;
+}
+
+.compFlipside {
+    opacity: 0;
+}
+
+.compFlipped {
+    .compFrontside {
+        opacity: 0;
+    }
+    .compFlipside {
+        opacity: 1;
+    }
+}
+
+.compPhoto {
+    &.compPhoto2 {
+        .compFlipside,
+        .compFrontside {
+            bottom: 0;
+        }
+    }
+    &.compPhoto3 {
+        .compFlipside,
+        .compFrontside {
+            bottom: 0;
+        }
+    }
+    &.compPhoto5 {
+        .compFlipside,
+        .compFrontside {
+            bottom: 0;
+        }
+    }
+    &.compPhoto7 {
+        .compFlipside,
+        .compFrontside {
+            bottom: 0;
+        }
+    }
+}
+
+.Image .img-responsive {
+    width: 100%;
+}
+
+.user-media-thumbnails {
+    li {}
+    .meta {
+        text-align: center;
+        color: #999;
+    }
+    a:hover {
+        text-decoration: none !important;
+    }
+}
+
+.user-counts-list {
+    li {
+        padding: 5px;
+        text-align: center;
+        margin-left: 25px;
+        .count {
+            font-weight: bold;
+            display: block;
+            font-size: 3em;
+            margin-top: 10px;
+        }
+    }
+}
+
+.iLoading {
+    opacity: 0;
+}
+
+.iLoaded {
+    opacity: 1;
+    &.iWithTransition {
+        -webkit-transition: opacity 2s;
+        -moz-transition: opacity 2s;
+        -o-transition: opacity 2s;
+        transition: opacity 2s;
+    }
+}
+
+.Image {
+    background-size: 100% 100%;
+    position: relative;
+}
+
+.hidden {
+    display: none;
+}
+
+ul.thumbnails li {
+    margin: 5px !important;
+}
+
+.table-user-information > tbody > tr {
+    border-top: 1px solid rgb(221, 221, 221);
+}
+
+.table-user-information > tbody > tr:first-child {
+    border-top: 0;
+}
+
+.table-user-information > tbody > tr > td {
+    border-top: 0;
+}
+
+
+/*footer*/
+
+.grid_2 {
+    padding-bottom: 0;
+}
+</style>
+<div class="row">
+    <div class="col-md-9 col-md-offset-2">
+        <header class="clearfix feed-header" data-role="banner" ng-show='headerImages.length == 7'>
+            <div class="compWrapper">
+                <div class="compInnerWrapper">
+                    <div class="compContainer" id="cycler1">
+                        <div ng-repeat="img in headerImages" class="compPhoto compPhoto{{headerImages.indexOf(img)+1}}">
+                            <a>
+                                <div class="Image iWithTransition">
+                                    <img src="{{img.thumb}}" class="img-responsive" title='{{img.title}}' />
+                                    <b class="compPhotoShadow"></b>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <div class="profile-user">
+            <div class="row">
+                <div class="col-md-4 col-lg-3">
+                    <div class="pull-left" style="margin-right: 15px;">
+                        <img src="http://www.gravatar.com/avatar/f6112e781842d6a2b4636b35451401ff?s=80&d=mm&r=g" class="img-polaroid img-responsive" />
+                    </div>
+                    <h2>{{uObj.firstname}} {{uObj.lastname}}</h2>
+                </div>
+                <div class="col-md-8 col-lg-9">
+                    <table class="table table-user-information">
+                        <tbody>
+                            <tr>
+                                <td>Username:</td>
+                                <td>{{uObj.username}}</td>
+                            </tr>
+                            <tr>
+                                <td>Email</td>
+                                <td><a href="mailto:info@support.com">{{uObj.email}}</a></td>
+                            </tr>
+                            <!-- <tr>
+                                <td>Date of Birth</td>
+                                <td>01/24/1988</td>
+                            </tr>
+                            <tr>
+                                <td>Gender</td>
+                                <td>Female</td>
+                            </tr>
+                            <tr>
+                                <td>Home Address</td>
+                                <td>Kathmandu,Nepal</td>
+                            </tr>
+                            <tr>
+                                <td>Phone Number</td>
+                                <td>123-4567-890(Landline)
+                                    <br>
+                                    <br>555-4567-890(Mobile)
+                                </td>
+                            </tr> -->
+                            <tr ng-show="uObj.subscription == 0">
+                                <td>Subscription:</td>
+                                <td>None</td>
+                            </tr>
+                            <tr ng-show="uObj.subscription != 0">
+                                <td>Subscription:</td>
+                                <td>{{uObj.title}}</td>
+                            </tr>
+                            <tr ng-show="uObj.subscription != 0">
+                                <td>Hire date:</td>
+                                <td>{{uObj.hiredate | date}}</td>
+                            </tr>
+                            <tr ng-show="uObj.subscription != 0">
+                                <td>Album:</td>
+                                <td>{{uObj.albumcreated}} / {{uObj.album}}</td>
+                            </tr>
+                            <tr ng-show="uObj.subscription != 0">
+                                <td>Images:</td>
+                                <td>{{uObj.imageuploaded}} / {{uObj.imagerecognized}}</td>
+                            </tr>
+                            <tr ng-show="uObj.subscription != 0">
+                                <td>Dick space:</td>
+                                <td>{{uObj.totalDiskUsed}} / {{uObj.diskspace}} Gb</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td><a data-toggle="modal" data-target="#password_modal" ng-click="openImage(img)">Change password</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="password_modal" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                    <span class="sr-only">Close</span>
+                </button>
+                <h4 class="modal-title" id="myModalLabel">
+                    Change Password 
+                </h4>
+            </div>
+            <!-- Modal Body -->
+            <div class="modal-body">
+                <form class="form-horizontal" role="form">
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label" for="oldpass">Current Password</label>
+                        <div class="col-sm-10">
+                            <input type="password" class="form-control" ng-model="oldpass" placeholder="Current Password" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label" for="newpass">New Password</label>
+                        <div class="col-sm-10">
+                            <input type="password" class="form-control" ng-model="newpass" placeholder="New Password" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label" for="confirmpass">Confirm Password</label>
+                        <div class="col-sm-10">
+                            <input type="password" class="form-control" ng-model="confirmpass" placeholder="Confirm Password" />
+                        </div>
+                    </div>
+                    <div class="alert alert-warning" ng-show="nullMessage !== ''">
+                        <strong>Warning!</strong> {{nullMessage}}
+                    </div>
+                </form>
+            </div>
+            <!-- Modal Footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">
+                    Close
+                </button>
+                <button type="button" class="btn btn-primary" ng-click="changePass()">
+                    Save changes
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

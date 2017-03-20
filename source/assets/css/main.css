@@ -1,0 +1,838 @@
+@font-face {
+    font-family: seguisym;
+    src: url(../fonts/seguisym.ttf);
+}
+
+* {
+    margin: 0px;
+}
+
+body {
+    font-family: 'seguisym';
+    font-size: 12px;
+    color: #676767;
+}
+
+h3.title {
+    float: left;
+    font-size: 15px;
+    text-transform: uppercase;
+}
+
+a,
+a:hover {
+    color: #22346d;
+}
+
+.navbar-toggle {
+    background-color: #FFF;
+}
+
+.navbar-toggle .icon-bar {
+    background-color: #a6a7a7;
+}
+
+#breadcrumb {
+    border-bottom: solid 1px #1f8a94;
+    margin-bottom: 15px;
+}
+
+.breadcrumb {
+    background: none;
+    font-size: 18px;
+    font-weight: bold;
+    color: #333333;
+    padding: 0px;
+    margin-top: 7px;
+    margin-bottom: 7px;
+    float: left;
+    width: 50%;
+}
+
+.breadcrumb>li>a {
+    color: #333333;
+}
+
+.navbar-first {
+    height: 61px;
+}
+
+.navbar-first ul li {
+    display: inline-block;
+    margin-right: 20px;
+    margin-top: 15px;
+}
+
+.navbar-first ul .avatar {
+    margin-right: 5px;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+}
+
+select.language {
+    border: solid 1px #abc9cc;
+    border-radius: 2px;
+    padding: 5px;
+}
+
+#logo-group > a.navbar-brand {
+    margin-top: -61px;
+    padding: 0px;
+    height: 100%;
+}
+
+#logo-group > a.navbar-brand > img {
+    height: 112px;
+}
+
+.main-navigation {
+    padding-right: 0px;
+}
+
+.navbar-second {
+    height: 51px;
+    background: #157399;
+    font-size: 18px;
+    color: #FFF;
+}
+
+.navbar-second a {
+    color: #FFF;
+}
+
+.navbar-second ul.navbar-nav {
+    margin-left: 20px;
+}
+
+.navbar-second ul.navbar-nav li {
+    margin-left: 45px;
+    min-width: 80px;
+    text-align: center;
+}
+
+.navbar-second ul.navbar-nav li.active {
+    border-bottom: solid 6px #5bd7cf;
+    height: 51px;
+}
+
+.navbar-second ul.navbar-nav li a {
+    height: 51px;
+}
+
+.navbar-second ul.navbar-nav li a:hover,
+.navbar-second ul.navbar-nav li a:active,
+.navbar-second ul.navbar-nav li a:focus {
+    background: none;
+}
+
+@media (max-width: 767px) {
+    .navbar-first ul {
+        margin-right: 0px;
+        margin-top: 14px;
+        padding: 0px;
+        float: right;
+    }
+    .navbar-first ul>li {
+        display: list-item;
+        margin: 0px;
+        list-style: none;
+    }
+}
+
+.footer {
+    text-align: center;
+    color: #FFF;
+    background: #157299;
+    padding: 10px;
+}
+
+.footer p {
+    margin: 0px;
+}
+
+
+/*People gird view five column*/
+
+.people-listing {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.people-listing:after,
+.people-listing:before {
+    content: " ";
+    display: table;
+}
+
+.people-listing:after {
+    clear: both;
+}
+
+.people-listing .list-item {
+    position: relative;
+    margin: 0 0 42px;
+    max-width: 245px;
+}
+
+td > img.people-image {
+    width: 70px;
+}
+
+.classactive {
+    color: #157299 !important;
+    text-decoration: underline;
+}
+
+.classinactive {
+    opacity: .4;
+    cursor: default !important;
+    pointer-events: none;
+}
+
+.classstatus {
+    cursor: default !important;
+    pointer-events: none;
+    opacity: .6;
+}
+
+.tab-active {
+    color: #fff;
+    background: #1F8A94 !important;
+}
+
+.option-icon {
+    padding: 9px;
+}
+
+.people-listing.horizontal-list {}
+
+@media (max-width:480px) {
+    .people-listing.horizontal-list {
+        margin-left: 0;
+    }
+}
+
+@media (max-width:991px) {
+    .people-listing.horizontal-list .list-item {
+        width: 50%!important;
+    }
+}
+
+@media (max-width:480px) {
+    .people-listing.horizontal-list .list-item {
+        width: 100%!important;
+        float: none;
+        padding-left: 0;
+    }
+}
+
+.people-listing.horizontal-list .list-item.clear-left {
+    clear: left;
+}
+
+@media (max-width:991px) {
+    .people-listing.horizontal-list .list-item.clear-left-tablet {
+        clear: left;
+    }
+}
+
+.people-listing.horizontal-list.five .list-item {
+    width: 20%;
+    float: left;
+    padding-left: 36px;
+    max-width: none;
+}
+
+@media (max-width:991px) {
+    .people-listing.horizontal-list.five .list-item.clear-left {
+        clear: none;
+    }
+}
+
+.people-listing.horizontal-list.five .list-item .info-box p.biography {
+    display: none;
+}
+
+
+/*People gird view one column*/
+
+.people-listing.horizontal-list.one .list-item {
+    width: 100%;
+    min-height: 250px;
+    max-width: none;
+}
+
+.people-listing.horizontal-list.one .list-item .img-box {
+    width: 22%;
+    float: left;
+}
+
+.people-listing.horizontal-list.one .list-item .info-box {
+    width: 78%;
+    float: left;
+}
+
+.people-listing.horizontal-list.one .list-item .info-box p.biography {
+    text-align: justify;
+}
+
+.people-listing.horizontal-list.one .list-item input.chk_send {
+    left: 5px;
+}
+
+.people-listing.horizontal-list.one .list-item .people-image {
+    width: auto;
+}
+
+
+/*People table view*/
+
+.grid-table>table>thead>tr {
+    background: #c7f3f2;
+    color: #252525;
+}
+
+.grid-table>table>thead>tr>th {
+    text-align: center;
+}
+
+.grid-table>table>tbody>tr>td.avatar,
+.grid-table>table>tbody>tr>td.chk_send {
+    text-align: center;
+}
+
+.grid-table>table>tbody>tr>td.avatar,
+.grid-table>table>tbody>tr>td.on-site {
+    color: #136fa0;
+}
+
+.people-listing input.chk_send {
+    position: absolute;
+    top: 5px;
+    margin-left: 5px;
+}
+
+.grid-footer {
+    border-bottom: solid 1px #898989;
+    border-top: solid 1px #898989;
+    padding-top: 10px;
+    margin-bottom: 10px;
+    display: table;
+    width: 100%;
+    height: 100%;
+}
+
+.grid-footer .entries {
+    float: left;
+    width: 50%;
+}
+
+.grid-footer ul.paging {
+    float: left;
+    width: 50%;
+    text-align: right;
+}
+
+.grid-footer ul.paging li {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.btn-send,
+.btn-send:hover,
+.btn-send:focus {
+    background: #157299;
+    color: #FFF;
+    float: right;
+    padding: 5px 20px 5px 20px;
+    margin-bottom: 10px;
+}
+
+.people-listing div.img-box {
+    position: relative;
+    width: 100%;
+    max-height: 220px;
+}
+
+.people-listing div.img-box .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 220px;
+    height: 250px;
+    display: none;
+    color: #FFF;
+    display: block;
+    background: rgba(0, 0, 0, .6);
+}
+
+.people-listing p.on-site {
+    color: #136fa0;
+}
+
+.action-box {
+    float: right;
+    width: 50%;
+}
+
+.action-box #search {
+    border-color: #1f8a94;
+    height: 30px;
+}
+
+.action-box .input-group-addon {
+    background-color: #157399;
+    color: #FFF;
+    border-color: #1f8a94;
+}
+
+.action-box ul.view-type {
+    margin: 0px;
+}
+
+.action-box ul.view-type li {
+    display: inline-block;
+    background: #157399;
+    color: #fff;
+}
+
+.action-box .search-box {
+    float: right;
+    width: 70%;
+}
+
+.action-box .select-box {
+    float: right;
+    width: 30%;
+    padding-right: 5px;
+}
+
+.action-box .select-box select {
+    border: solid 1px #1f8a94;
+    height: 30px;
+    padding: 0px 6px;
+}
+
+.action-box .view-type {
+    float: right;
+}
+
+.floorplan {
+    border: 1px solid #ddd;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.list-peolple {
+    margin-bottom: 20px;
+}
+
+.seemore {
+    padding: 5px;
+    background: #157399;
+    text-align: center;
+    color: #fff;
+}
+
+.seemore:hover {
+    padding: 5px;
+    background: #787878;
+    border-radius: 5px;
+    text-align: center;
+    color: #fff;
+    cursor: pointer;
+}
+
+.tool {
+    float: right;
+}
+
+.select-name {
+    border-radius: 0px;
+}
+
+.video-tool {
+    padding: 7px;
+    border: 1px solid #787878;
+    color: #8B8B8B;
+}
+
+.btn-zoom {
+    background: #157399;
+    color: #fff;
+    border: 0;
+    border-radius: 0px;
+}
+
+.table.dataTable.no-footer {
+    border-bottom: 0;
+}
+
+.dataTables_wrapper .dataTables_info {
+    padding-top: 0.25em;
+}
+
+.table.dataTable thead th {
+    border-bottom: 0;
+}
+
+table.dataTable>thead>tr {
+    background: #157399;
+    color: #fff;
+    border: 0px;
+}
+
+table.dataTable>thead>tr>th {
+    text-align: center;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button.current,
+.dataTables_wrapper .dataTables_paginate .paginate_button.current:hover {
+    background: none;
+    border: none;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button,
+.dataTables_wrapper .dataTables_paginate .paginate_button:hover {
+    background: none;
+    border: none;
+    color: #252525 !important;
+    margin: 0px;
+    padding: 0px;
+    padding-left: 5px;
+}
+
+.dataTables_filter {
+    display: none;
+}
+
+#send-message .modal-header {
+    background: #1f8a94;
+    color: #FFF;
+    text-transform: uppercase;
+}
+
+#send-message .btn-send,
+#send-message .btn-send:hover,
+#send-message .btn-send:focus {
+    background: #1f8a94;
+    color: #FFF;
+    float: right;
+    padding: 5px 20px 5px 20px;
+    margin-bottom: 10px;
+}
+
+#send-message button.close {
+    color: #FFF;
+    text-shadow: none;
+    opacity: 10;
+}
+
+.login-box {
+    padding: 0px;
+}
+
+.form-login {
+    background: #FFF;
+    padding: 40px 40px 140px 40px;
+}
+
+.form-login img {
+    max-height: 100%;
+    margin-bottom: 20px;
+    margin-top: 50px;
+    margin-left: 0px;
+}
+
+.box-notification {
+    margin-top: 3%;
+    margin-left: 3%;
+    background: #FFF;
+    color: #333;
+    width: 40%;
+}
+
+@media (max-width:768px) {
+    .login-box {
+        margin-top: 0px;
+    }
+    .box-notification {
+        margin: 5%;
+        background: #FFF;
+        color: #333;
+        width: 90%;
+    }
+}
+
+.box-notification p.number-notification {
+    background: #157399;
+    border: 2px solid #8CC7FF;
+    color: #FFF;
+    height: 25px;
+    width: 25px;
+    text-align: center;
+    position: relative;
+    left: -10px;
+    top: 60px;
+}
+
+.box-notification .content-notification {
+    padding: 0px 10px 10px 30px;
+}
+
+.box-notification .content-notification h3 {
+    font-size: 14px;
+    margin: 0px;
+    text-transform: uppercase;
+}
+
+.box-notification .content-notification hr {
+    border-top: 1px solid #333;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.form-login a,
+.form-login a:hover {
+    color: #252525;
+}
+
+.form-login button,
+.form-login button:hover {
+    background: #157399;
+    color: #FFF;
+    padding-left: 30px;
+    padding-right: 30px;
+    border: none;
+}
+
+.navbar-second .main-navigation ul.nav li:hover > div.dropdown-menu {
+    display: block;
+    border: solid 2px #5dd4ce;
+    color: #252525;
+    top: 51px;
+}
+
+.navbar-second .main-navigation ul.nav li > div.dropdown-menu .block {
+    padding: 10px 30px 10px 30px;
+    width: 200px;
+    float: left;
+}
+
+.navbar-second .main-navigation ul.nav li > div.dropdown-menu .block h3 {
+    text-transform: uppercase;
+    font-size: 15px;
+    font-weight: bold;
+    margin: 0px;
+    line-height: 200%;
+    border-bottom: solid 1px #252525;
+}
+
+.navbar-second .main-navigation ul.nav li > div.dropdown-menu > .block > ul.sm-links {
+    padding: 0px;
+    list-style: none;
+}
+
+.navbar-second .main-navigation ul.nav li > div.dropdown-menu > .block > ul.sm-links > li {
+    padding-top: 10px;
+    margin: 0px;
+    text-align: left;
+}
+
+.navbar-second .main-navigation ul.nav li > div.dropdown-menu > .block > ul.sm-links > li > a {
+    color: #252525;
+    font-size: 12px;
+}
+
+.navbar-second .main-navigation ul.nav li > div.dropdown-menu > .block.clear-left {
+    clear: left;
+}
+
+.custom-control {
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+.custom-control input {
+    border-radius: 0px;
+    background: #f7f7f7;
+}
+
+.custom-control .input-group-addon {
+    background: #dbdbdb;
+    color: #999999;
+    border-radius: 0px;
+    text-align: left;
+    width: 100px;
+}
+
+.custom-control label {
+    color: #999999;
+    font-weight: normal;
+}
+
+.custom-control .input-group-addon {
+    background: #dbdbdb;
+    color: #999999;
+    border-radius: 0px;
+    text-align: left;
+    width: 100px;
+    padding: 4px 12px;
+}
+
+.custom-control select {
+    border-radius: 0px;
+    background: #f7f7f7;
+}
+
+.device-image {
+    margin-bottom: 15px;
+}
+
+.device-image img {
+    width: 100%;
+    height: 100%;
+    border: 1px solid #ddd;
+}
+
+.btn-option-create {
+    margin-bottom: 20px;
+    margin-top: 20px;
+    width: 200px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.btn-edit,
+.btn-edit:hover,
+.btn-edit:focus {
+    background: #157299;
+    color: #FFF;
+    padding: 5px 20px 5px 20px;
+    margin-bottom: 10px;
+}
+
+.profile h2 {
+    margin-top: 0px;
+    font-size: 16px;
+    text-transform: uppercase;
+    background: #dbdbdb;
+    padding: 10px;
+    border-left: solid 5px #167299;
+}
+
+.col-left {
+    padding-right: 50px;
+    border-right: solid 1px #c2c2c2;
+}
+
+.col-right {
+    padding-left: 50px;
+}
+
+.no-padding {
+    padding: 0px;
+}
+
+ul.training-profile {
+    font-size: 14px;
+    list-style: circle;
+    padding-left: 20px;
+}
+
+div.avatar {
+    padding-left: 0px;
+}
+
+div.avatar img {
+    margin-bottom: 20px;
+}
+
+.btn-custom,
+.btn-custom:hover,
+.btn-custom:focus {
+    background: #157299;
+    color: #FFF;
+    padding: 5px 20px 5px 20px;
+}
+
+input.date-picker {
+    background: url(../img/calendar.png) no-repeat right 0.5% center;
+}
+
+.header-table {
+    background: #157399;
+    color: #fff;
+    border: 0px;
+}
+
+.option-box {
+    float: left;
+    margin-bottom: 3px;
+}
+
+.option-box button {
+    background: #157399;
+    color: #fff;
+    border-radius: 0px;
+}
+
+.option-box i {
+    margin-right: 5px;
+}
+
+.input-group-addon:hover {
+    cursor: pointer;
+}
+
+.clear-bottom {
+    margin-bottom: 5px;
+}
+
+.list-item10 {
+    width: 9%;
+    float: left;
+    max-width: none;
+    position: relative;
+    margin-left: 10px;
+}
+
+.list-item10 .img-box10 {
+    height: 100px;
+    width: 100px;
+    position: relative;
+}
+
+.list-item10 .biography {
+    display: none;
+}
+
+.list-item10 .chk_send {
+    float: left;
+}
+
+.people-image {
+    width: 100%;
+}
+
+.custom-login {
+    overflow-y: auto;
+    background: #fff;
+    padding-right: 0px;
+    height: 100%;
+    position: fixed;
+    right: 0;
+}
+
+.img-bg {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+}
+
+.clear-padding-left {
+    padding-left: 0px;
+}
